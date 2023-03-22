@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>home</title>
+    <style>
+        body{color: blue;font-weight: 100;font-family: cursive;background-color: thistle;}
+        h1{color:blue;border-style: solid;border-radius: 70px;}
+        h2{color:chocolate}
+    
+    </style>
+</head>
+<body>
+    <h1><center><a href="{{url_for('index')}}">Home</a></center></h1>
+    <h2>Student Performence Measure</h2>
+    <form action="{{url_for('predict_datapoint')}}" method="POST">
+        <div>
+        <label>gender</label>
+            <select name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
+        <div>
+            <label>race_ethnicity</label>
+            <select name="ethnicity">
+                <option value="group A">Group A</option>
+                <option value="group B">Group B</option>
+                <option value="group C">Group C</option>
+                <option value="group D">Group D</option>
+                <option value="group E">Group E</option>
+            </select>
+        </div>
+        <div>
+            <label>parental_level_of_education</label>
+            <select name="parental_level_of_education">
+                <option value="bachelor's degree">Bachelor`s degree</option>
+                <option value="some college">some college</option>
+                <option value="high school">high school</option>
+                <option value="associate's degree">associate's degree</option>
+                <option value="master's degree">master's degree</option>
+            </select>
+        </div>
+        <div>
+            <label>lunch</label>
+            <select name="lunch">
+                <option type="radio" value="standard">Standard</option>
+                <option type="radio" value="free/reduced">Free/reduced</option>
+            </select>
+        </div>
+        <div>
+            <label>test_preparetion_course</label>
+            <select name="test_preparetion_course">
+                <option value="completed">Comlepleted</option>
+                <option value="none">None</option>
+            </select>
+        </div>
+        <div>
+            <label>reading_score</label>
+            <input type="number" name="reading_score">
+        </div>
+        <div>
+            <label>writing_score</label>
+            <input type="number" name="writing_score">
+        </div>
+            <button type="reset">Reset</button><br/>
+            <button type="submit">Submit</button>
+    </form>
+    {% if results%}
+        <h3>Math score would be {{results}}</h3>
+        
+    {% endif %}
+</body>
+</html>
